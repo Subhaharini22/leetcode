@@ -1,0 +1,39 @@
+int returnvalue(char c){
+    switch (c){
+        case 'I':
+        return 1;
+        break;
+        case 'V':
+        return 5;
+        break;
+        case 'X':
+        return 10;
+        break;
+        case 'L':
+        return 50;
+        break;
+        case 'C':
+        return 100;
+        break;
+        case 'D':
+        return 500;
+        break;
+        case 'M':
+        return 1000;
+        break;
+    }
+    return 0;
+}
+int romanToInt(char * s){
+  int n=strlen(s);
+  int val=returnvalue(s[n-1]);
+  for(int i=n-2;i>=0;i--){
+if(returnvalue(s[i])>=returnvalue(s[i+1])){
+    val+=returnvalue(s[i]);
+}
+else{
+    val-=returnvalue(s[i]);
+}
+  }
+  return val;
+}
